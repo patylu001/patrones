@@ -27,7 +27,7 @@ public class DynamicProxy {
 	                throws IllegalAccessException, IllegalArgumentException,
 	                InvocationTargetException {
 	            System.out.println("BEFORE");
-	            int a = 3;
+	            int a = 2;
 	            if ( a == 3 )
 	            {
 	            	System.out.println("No va a pasar la llamada");
