@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mayab.desarrollo</groupId>
+	<artifactId>orm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<mainClass>org.atteo.moonshine.Main</mainClass>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.atteo.moonshine</groupId>
+				<artifactId>bom</artifactId>
+				<version>1.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.atteo.moonshine</groupId>
+			<artifactId>container</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.atteo.moonshine</groupId>
+			<artifactId>hibernate</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.atteo.moonshine</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.atteo.moonshine</groupId>
+			<artifactId>atomikos</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.atteo.moonshine</groupId>
+			<artifactId>container-test-utils</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>1.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.20.1</version>
+</dependency>
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.2.12.Final</version>
+</dependency>
+<dependency>
+    <groupId>com.zsoltfabok</groupId>
+    <artifactId>sqlite-dialect</artifactId>
+    <version>1.0</version>
+</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<configuration>
+							<mainClass>${mainClass}</mainClass>
+							<arguments>
+								<argument>--auto-configuration</argument>
+								<argument>--home</argument>
+								<argument>${project.build.directory}/home</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

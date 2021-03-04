@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+          "http://www.hibernate.org/dtd/hibernate-configuration-5.3.dtd">  
+  
+<hibernate-configuration>
+	   <session-factory>
+
+	   <property name="hibernate.dialect">
+	      org.hibernate.dialect.SQLiteDialect
+	   </property>
+	   <property name="hibernate.connection.driver_class">
+		  org.sqlite.JDBC
+	   </property>
+	   <property name="hibernate.connection.url">
+		jdbc:sqlite:/Users/patriciaortegon/Documents/Personales/Mayab/Enero-Mayo2021/DB/Ejemplo.db
+	   </property>
+
+		<property name="hibernate.hbm2ddl.auto">
+		create
+		</property>
+	   <mapping resource="Employee.hbm.xml"/>
+
+		</session-factory>
+	</hibernate-configuration>
